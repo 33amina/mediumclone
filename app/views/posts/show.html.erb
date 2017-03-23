@@ -1,0 +1,30 @@
+<div class="jumbotron">
+  <h1>BlaCool!</h1>
+  <p>...</p>
+  <p><a class="btn btn-primary btn-lg" </a></p>
+  <p>
+  <strong>Message:</strong>
+  <%= @post.body %>
+</p>
+<%= bootstrap_form_for @comment, url:  add_comment_post_path(@post) do |f| %>
+  <%= f.text_field :body %>
+  <%= f.submit "Submit" %>
+<% end %>
+</div>
+
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <strong>User:</strong>
+  <%= @post.user.email%>
+</p>
+
+
+
+<% @post.comments.each do | comment|%>
+<ul class="list-group">
+  <li class="list-group-item comment-text"><%= comment.body%><%comment.user.email%> <%comment.created_at%></li>
+</ul>
+
+<%end%>

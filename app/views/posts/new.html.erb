@@ -1,0 +1,6 @@
+<%= bootstrap_form_for(@post) do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_field :body %>
+  <%= f.select :published, [[true, "Yes"], [false, "NO"]], { label: "To Published, Yes or No?:" } %>
+  <%= f.submit "Submit" %>
+<% end %>
